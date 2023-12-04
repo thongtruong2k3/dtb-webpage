@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Buy your favorite products at the best price. Take advantage of our incredible discounts and pay with your favorite payment method."
+        />
+        <title>ShopHouse ::HOME::</title>
+        <link rel="stylesheet" href="./assets/styles/main.css" />
+        <link rel="stylesheet" href="./assets/styles/normalize.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <nav>
+            <a href="./index.html"><img src="./assets/img/logo.png" alt="logo-shophouse" class="nav__logo" /></a>
+            <div class="header-with-search__search-section">
+                <div class="search_body">
+                    <div class="search-container">
+                      <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+                      <button class="search-button" onclick="search()">Search</button>
+                    </div>
+                  </div>
+            </div>
+            <ul class="nav__navigation">
+                <a href="./index.html" class="a__navbar btn btn--primary"><li class="nav__item currentLink">HOME</li></a>
+                <a href="#" class="a__navbar btn btn--primary"><li class="nav__item">CONTACT US</li></a>
+                <a href="#" class="a__navbar btn btn--primary"><li class="nav__item">OFFERTS</li></a>
+                <a href="./cart.html" class="a__navbar btn btn--primary"><li class="nav__item">My Cart</li></a>
+                <a href="#" class="a__navbar btn btn--primary"><li class="nav__item">LOGIN</li></a>
+            </ul>
+            <i class="fas fa-bars wrap-menu" aria-label="Abrir menú"></i>
+        </nav>
+        <section class="hero">
+            <div class="hero__content">
+                <img src="./assets/img/logo.png" alt="Shop house logo" class="hero__logo" />
+                <p class="hero__text">
+                    Over 30 years of experience giving our customers the products at the best price.
+                </p>
+                <a href="#catContainer"><button class="btn btn--black btn--hero">Take a look of our categories</button></a>
+            </div>
+        </section>
+        <br>
+        <section class="bannerblock">
+            <div id="banner">
+            <img src="/assets/img/bg_desktop.jpg" alt="Ad 1">
+            <img src="/assets/img/logo.png" alt="Ad 2">
+            <img src="/assets/img/items/clothes/buzo_puma.png" alt="Ad 3">
+            <img src="/assets/img/items/drinks/cocaCola_pack.png" alt="Ad 4">
+          </div>
+        </section>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="catContainer container" id="catContainer">
+            <section class="bannerCategories">
+                <h2 class="subtitle subtitle--cat">OUR CATEGORIES</h2>
+            </section>
+            <div class="circlesContainer">
+                <div class="circle">
+                    <a href="./clothes.html"><img src="./assets/img/items/categories/clothes-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./clothes.html" class="a__catContainer"><h3 class="descripCateg">CLOTHES</h3></a>
+                    </div>
+                </div>
+                <div class="circle">
+                    <a href="./shoes.html"><img src="./assets/img/items/categories/shoes-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./shoes.html" class="a__catContainer"><h3 class="descripCateg">SHOES</h3></a>
+                    </div>
+                </div>
+                <div class="circle">
+                    <a href="./home-appliances.html"><img src="./assets/img/items/categories/appliances-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./home-appliances.html" class="a__catContainer"><h3 class="descripCateg">HOME APPLIANCES</h3></a>
+                    </div>
+                </div>
+                <div class="circle">
+                    <a href="./food.html"><img src="./assets/img/items/categories/food-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./food.html" class="a__catContainer"><h3 class="descripCateg">FOOD</h3></a>
+                    </div>
+                </div>
+                <div class="circle">
+                    <a href="./drinks.html"><img src="./assets/img/items/categories/drinks-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./drinks.html" class="a__catContainer"><h3 class="descripCateg">DRINKS</h3></a>
+                    </div>
+                </div>
+                <div class="circle">
+                    <a href="./technology.html"><img src="./assets/img/items/categories/tech-crop.jpg" class="imgRounded" /></a>
+                    <div class="circleBody">
+                        <a href="./technology.html" class="a__catContainer"><h3 class="descripCateg">TECHNOLOGY</h3></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer__container container">
+                <div class="footer__info-social">
+                    <div class="footer__info">
+                        <img src="./assets/img/logo_white.svg" alt="Shop house logo" class="footer__logo" />
+                        <ul class="footer__list info__list">
+                            <li class="footer__item info__item">123 Nguyen Van Cu</li>
+                            <li class="footer__item info__item">+84 999-999-999</li>
+                            <li class="footer__item info__item">AEON@aeon.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__social">
+                        <h3 class="footer-subtitle">OUR SOCIAL MEDIA</h3>
+                        <ul class="footer__list social__list">
+                            <a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-facebook"></i></li></a
+                            ><a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-instagram"></i></li> </a
+                            ><a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-twitter-square"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/5023e2a492.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="./assets/scripts/index.js"></script>
+        <script src="https://kit.fontawesome.com/5023e2a492.js" crossorigin="anonymous"></script>
+    </body>
+</html>
