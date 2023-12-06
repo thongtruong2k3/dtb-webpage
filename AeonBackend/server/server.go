@@ -38,5 +38,9 @@ func (s *server) Stop() error {
 func (s *server) RegisterEndpoint(db *gorm.DB) {
 	controller.NewCustomerController(s.gin, db)
 	controller.NewEmployeeController(s.gin, db)
-
+	controller.NewProductController(s.gin, db)
+	controller.NewPromotionController(s.gin, db)
+	controller.NewStoreController(s.gin, db)
+	controller.NewTransactionController(s.gin, db)
+	controller.NewTakeOrderController(s.gin, db)
 }

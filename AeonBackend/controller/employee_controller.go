@@ -11,11 +11,13 @@ import (
 
 func NewEmployeeController(g *gin.Engine, db *gorm.DB) {
 	router := g.Group("/employees")
-	router.GET("/", getEmployeeList(db))
-	router.GET("/:id", getEmployeeByID(db))
-	router.PUT("/:id", updateEmployeeInfoByID(db))
-	router.POST("/", createEmployee(db))
-	router.DELETE("/:id", deleteEmployee(db))
+	{
+		router.GET("/", getEmployeeList(db))
+		router.GET("/:id", getEmployeeByID(db))
+		router.PUT("/:id", updateEmployeeInfoByID(db))
+		router.POST("/", createEmployee(db))
+		router.DELETE("/:id", deleteEmployee(db))
+	}
 }
 
 func createEmployee(db *gorm.DB) func(ctx *gin.Context) {
@@ -70,7 +72,7 @@ func getEmployeeByID(db *gorm.DB) func(c *gin.Context) {
 			return
 		}
 
-		if err := db.Table("EPhone").Where("employee_id = ?", id).First(&employee).Error; err != nil {
+		if err := db.Table("employee").Where("EmployeeID = ?", id).First(&employee).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
@@ -93,7 +95,7 @@ func updateEmployeeInfoByID(db *gorm.DB) func(c *gin.Context) {
 			return
 		}
 
-		if err := db.Table("employee").Where("employee_id = ?", id).Updates(&data).Error; err != nil {
+		if err := db.Table("employee").Where("EmployeeID = ?", id).Updates(&data).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
@@ -110,7 +112,7 @@ func deleteEmployee(db *gorm.DB) func(c *gin.Context) {
 			return
 		}
 
-		if err := db.Where("employee_id = ?", id).Delete(&entity.Employee{}).Error; err != nil {
+		if err := db.Where("EmployeeID = ?", id).Delete(&entity.Employee{}).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}

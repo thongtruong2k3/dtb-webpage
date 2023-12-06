@@ -12,12 +12,14 @@ import (
 
 func NewCustomerController(g *gin.Engine, db *gorm.DB) {
 	router := g.Group("/customers")
-	router.GET("/", getCustomerList(db))           // list of customer
-	router.GET("/:id", getCustomerByID(db))        // get user info by ID
-	router.PUT("/:id", updateCustomerInfoById(db)) // edit an item by ID
-	router.POST("/", createCustomer(db))           // create task
-}
+	{
+		router.GET("/", getCustomerList(db))           // list of customer
+		router.GET("/:id", getCustomerByID(db))        // get user info by ID
+		router.PUT("/:id", updateCustomerInfoById(db)) // edit an item by ID
+		router.POST("/", createCustomer(db))           // create task
+	}
 
+}
 func createCustomer(db *gorm.DB) func(ctx *gin.Context) {
 	return func(c *gin.Context) {
 		var data entity.CustomerCreation
@@ -61,7 +63,7 @@ func getCustomerByID(db *gorm.DB) func(c *gin.Context) {
 				"error": err.Error(),
 			})
 		}
-		if err := db.Table("customer").Where("customer_id = ?", id).First(&task).Error; err != nil {
+		if err := db.Table("customer").Where("CustomerID = ?", id).First(&task).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
 			})
@@ -86,7 +88,7 @@ func updateCustomerInfoById(db *gorm.DB) func(c *gin.Context) {
 			})
 			return
 		}
-		if err := db.Table("customer").Where("task_id = ?", id).Updates(&data).Error; err != nil {
+		if err := db.Table("customer").Where("CustomerID = ?", id).Updates(&data).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
 			})

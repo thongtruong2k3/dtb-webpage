@@ -1,21 +1,40 @@
 package entity
 
 type Shipper struct {
-	ShipperID       int    `json:"shipper_id" gorm:"shipper_id"`
-	VehicleCapacity int    `json:"vehicle_capacity" gorm:"vehicle_capacity"`
-	Area            string `json:"area" gorm:"area"`
-	Status          string `json:"status" gorm:"status"`
-	SAddress        string `json:"s_address" gorm:"s_address"`
-	SFName          string `json:"s_fname" gorm:"s_fname"`
-	SLName          string `json:"s_lname" gorm:"s_lname"`
+	ShipperID       int    `json:"ShipperID" gorm:"column:ShipperID"`
+	VehicleCapacity int    `json:"VehicleCapacity" gorm:"column:VehicleCapacity"`
+	Area            string `json:"Area" gorm:"column:Area"`
+	Status          string `json:"Status" gorm:"column:Status"`
+	SAddress        string `json:"SAddress" gorm:"column:SAddress"`
+	SFName          string `json:"SFName" gorm:"column:SFName"`
+	SLName          string `json:"SLName" gorm:"column:SLName"`
 }
 
 type ShipperPhoneNo struct {
-	ShipperID int    `json:"shipper_id" gorm:"shipper_id"`
-	PhoneNo   string `json:"phone_no" gorm:"phone_no"`
+	ShipperID int    `json:"ShipperID" gorm:"column:ShipperID"`
+	PhoneNo   string `json:"PhoneNo" gorm:"column:PhoneNo"`
 }
 
+type ShippePhoneNoCreation struct {
+	ShipperID int    `json:"ShipperID" gorm:"column:ShipperID"`
+	PhoneNo   string `json:"PhoneNo" gorm:"column:PhoneNo"`
+}
+
+func (ShippePhoneNoCreation) TableName() string { return "shipper_phone_no" }
+
+type ShipperCreation struct {
+	ShipperID       int    `json:"ShipperID" gorm:"column:ShipperID"`
+	VehicleCapacity int    `json:"VehicleCapacity" gorm:"column:VehicleCapacity"`
+	Area            string `json:"Area" gorm:"column:Area"`
+	Status          string `json:"Status" gorm:"column:Status"`
+	SAddress        string `json:"SAddress" gorm:"column:SAddress"`
+	SFName          string `json:"SFName" gorm:"column:SFName"`
+	SLName          string `json:"SLName" gorm:"column:SLName"`
+}
+
+func (ShipperCreation) TableName() string { return "shipper" }
+
 type AreaShip struct {
-	ShipperID int    `json:"shipper_id" gorm:"shipper_id"`
-	Area      string `json:"area" gorm:"area"`
+	ShipperID int    `json:"ShipperID" gorm:"column:ShipperID"`
+	Area      string `json:"Area" gorm:"column:Area"`
 }
