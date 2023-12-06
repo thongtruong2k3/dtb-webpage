@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ShopHouse ::Home Appliances::</title>
+
+        <link rel="stylesheet" href="./assets/styles/main.css" />
+        <link rel="stylesheet" href="./assets/styles/normalize.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600&display=swap" rel="stylesheet" />
+    </head>
+    <body> 
+        <nav>
+            <a href="./index.html"><img src="./assets/img/logo.png" alt="logo-shophouse" class="nav__logo" /></a>
+            <div class="header-with-search__search-section">
+                <div class="search_body">
+                    <div class="search-container">
+                      <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+                      <button class="search-button" onclick="search()">Search</button>
+                    </div>
+                  </div>
+            </div>
+            <ul class="nav__navigation">
+                <a href="./index.html" class="a__navbar btn btn--primary"><li class="nav__item currentLink">HOME</li></a>
+                <a href="#footer" class="a__navbar btn btn--primary"><li class="nav__item">CONTACT US</li></a>
+                <a href="#" class="a__navbar btn btn--primary"><li class="nav__item">OFFERS</li></a>
+                <a href="./cart.html" class="a__navbar btn btn--primary"><li class="nav__item">My Cart</li></a>
+                <a href="./login.html" class="a__navbar btn btn--primary"><li class="nav__item">LOGIN</li></a>
+            </ul>
+            <i class="fas fa-bars wrap-menu" aria-label="Abrir menú"></i>
+        </nav>
+
+        <section class="page-section providers">
+            <h2 class="subtitle subtitle--providers">Our providers</h2>
+
+            <div class="providers__container">
+                <img
+                    src="https://www.logologo.com/logos/stars-and-stripes-logo.jpg"
+                    alt="Provider brand logo"
+                    class="providers__provider-logo"
+                />
+                <img
+                    src="https://www.logologo.com/logos/b-logo.jpg"
+                    alt="Provider brand logo"
+                    class="providers__provider-logo"
+                />
+                <img
+                    src="https://www.logologo.com/logos/globe-with-wings-logo.jpg"
+                    alt="Provider brand logo"
+                    class="providers__provider-logo"
+                />
+                <img
+                    src="https://www.logologo.com/logos/letter-s-logo.jpg"
+                    alt="Provider brand logo"
+                    class="providers__provider-logo"
+                />
+                <img
+                    src="https://www.logologo.com/logos/cartoon-rocket-logo.jpg"
+                    alt="Provider brand logo"
+                    class="providers__provider-logo"
+                />
+            </div>
+        </section>
+
+        <section class="page-section products">
+
+            <header class="products__header container">
+                <h2 class="subtitle subtitle--products">Home Appliances category:</h2>
+            </header>
+
+            <div class="products__container container">
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/blender.png" alt="Classic blender" />
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">Classic blender</p>
+                        <p class="product-card__price">Price: 30.00 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/cooler.png" alt="cooler" />
+                        <p class="product__disscount">18% off</p>
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">Drinks cooler</p>
+                        <p class="product-card__price">Price: 163.99 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/freezer.png" alt="freezer" />
+                        <p class="product__disscount">16% off</p>
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">Freezer</p>
+                        <p class="product-card__price">Price: 503.99 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/handMIxer.png" alt="handMIxer" />
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">Red hand-mixer</p>
+                        <p class="product-card__price">Price: 44.99 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/microwave.png" alt="microwave" />
+                        <p class="product__disscount">30% off</p>
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">microwave</p>
+                        <p class="product-card__price">Price: 79.99 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="./assets/img/items/home_appliances/washer.png"  alt="washer" />
+                        <p class="product__disscount">20% off</p>
+                    </div>
+
+                    <div class="product-card__body">
+                        <p class="product-card__name">Washer</p>
+                        <p class="product-card__price">Price: 949.99 <span>usd</span></p>
+
+                        <div class="product-card__buttons">
+                            <button class="btn btn--secondary">Buy</button>
+                            <button class="btn btn--secondary--transparent">Details</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer" id="footer">
+            <div class="footer__container container">
+                <div class="footer__info-social">
+                    <div class="footer__info">
+                        <img src="./assets/img/logo_white.svg" alt="Shop house logo" class="footer__logo" />
+                        <ul class="footer__list info__list">
+                            <li class="footer__item info__item">123 Nguyen Van Cu</li>
+                            <li class="footer__item info__item">+84 999-999-999</li>
+                            <li class="footer__item info__item">AEON@aeon.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__social">
+                        <h3 class="footer-subtitle">OUR SOCIAL MEDIA</h3>
+                        <ul class="footer__list social__list">
+                            <a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-facebook"></i></li></a
+                            ><a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-instagram"></i></li> </a
+                            ><a href="#" class="social__link">
+                                <li class="footer__item social__item"><i class="fab fa-twitter-square"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/5023e2a492.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="./assets/scripts/index.js"></script>
+        <script src="https://kit.fontawesome.com/5023e2a492.js" crossorigin="anonymous"></script>
+    </body>
+</html>
