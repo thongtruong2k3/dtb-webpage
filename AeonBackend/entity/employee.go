@@ -39,5 +39,3 @@ type EmployeeUpdate struct {
 	Address    string  `json:"Address" gorm:"column:Address"`
 	StoreID    int     `json:"StoreID" gorm:"column:StoreID"`
 }
-
-func (Employee) TableName() string { return "employee" }

@@ -13,7 +13,6 @@ import (
 func NewTakeOrderController(g *gin.Engine, db *gorm.DB) {
 	router := g.Group("/ship")
 	{
-
 		router.POST("/order", createOrdering(db))
 
 	}
@@ -39,10 +38,12 @@ func createOrdering(db *gorm.DB) func(ctx *gin.Context) {
 		}
 
 		address := customer.CAddress
+		println(address)
 		parts := strings.Split(address, ",")
-		area := parts[1][1]
-
-		if err := db.Where("Area = ? AND Status = ?", area, "free").First(&freeShipper).Error; err != nil {
+		area := parts[3]
+		area = area[1:]
+		println(area)
+		if err := db.Table("shipper").Where("Area = ? AND Status = ?", area, "Active").First(&freeShipper).Error; err != nil {
 			c.JSON(400, gin.H{"error": "No free shipper available for the specified area"})
 			return
 		}

@@ -37,6 +37,7 @@ type BillCreation struct {
 type Cashier struct {
 	EmployeeID int    `json:"EmployeeID" gorm:"column:column:EmployeeID"`
 	Shift      string `json:"Shift" gorm:"column:column:Shift"`
+	StoreID    int    `json:"StoreID" gorm:"column:StoreID"`
 }
 
 func (BillCreation) TableName() string { return "bill" }

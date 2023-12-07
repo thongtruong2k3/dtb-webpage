@@ -12,8 +12,9 @@ import (
 func NewProductController(g *gin.Engine, db *gorm.DB) {
 	router := g.Group("/products")
 	{
-		router.GET("/category/:cate", getListProductByCategory(db))
-		router.GET("/", getListProductHavePromotion(db))
+		router.GET("/category/:category", getListProductByCategory(db))
+		router.GET("/promotion/:id", getListProductByPromotionID(db))
+		router.GET("/promotion/", getListProductHavePromotion(db))
 		router.GET("/store/:id", getListProductByStoreID(db))
 		router.POST("/", createProduct(db))
 	}
@@ -65,6 +66,23 @@ func getListProductHavePromotion(db *gorm.DB) func(c *gin.Context) {
 		c.JSON(http.StatusOK, promotedProducts)
 	}
 }
+func getListProductByPromotionID(db *gorm.DB) func(c *gin.Context) {
+	return func(c *gin.Context) {
+		id, err := strconv.Atoi(c.Param("id"))
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+		var products []entity.Product
+		if err := db.Raw("CALL GetProductsByPromotion(?)", id).Scan(&products).Error; err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": err.Error(),
+			})
+			return
+		}
+		c.JSON(http.StatusOK, products)
+	}
+}
 
 func getListProductByStoreID(db *gorm.DB) func(c *gin.Context) {
 	return func(c *gin.Context) {
@@ -74,8 +92,7 @@ func getListProductByStoreID(db *gorm.DB) func(c *gin.Context) {
 			return
 		}
 		var products []entity.Product
-		if err := db.Table("product").Joins("JOIN at ON product.ProductID = at.ProductID").
-			Where("at.StoreID = ?", id).Find(&products).Error; err != nil {
+		if err := db.Raw("CALL GetProductsByStoreID(?)", id).Scan(&products).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
 			})

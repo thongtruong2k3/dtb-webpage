@@ -2,30 +2,38 @@ package controller
 
 import (
 	"AeonBackend/entity"
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 	"math/rand"
 	"net/http"
 	"strconv"
 	"time"
-
-	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 )
 
 func getRandomCashierID(db *gorm.DB, storeID int) (int, error) {
-	// Seed the random number generator to get different values on each run
-	rand.Seed(time.Now().UnixNano())
 
-	var cashier entity.Cashier
+	var cashierIDs []int
+
+	// Select EmployeeIDs from the Cashier table for the given StoreID
 	if err := db.Table("cashier").
 		Where("StoreID = ?", storeID).
-		Order("random()"). // Use the random function specific to your database (e.g., RAND() for MySQL, RANDOM() for SQLite)
-		Limit(1).
-		Scan(&cashier).
+		Pluck("EmployeeID", &cashierIDs).
 		Error; err != nil {
 		return 0, err
 	}
 
-	return cashier.EmployeeID, nil
+	// Check if there are any CashierIDs for the given StoreID
+	if len(cashierIDs) == 0 {
+		return 0, fmt.Errorf("no CashierIDs found for StoreID %d", storeID)
+	}
+
+	// Generate a random index to select a random CashierID
+	rand.Seed(time.Now().UnixNano())
+	randomIndex := rand.Intn(len(cashierIDs))
+
+	// Return the random CashierID
+	return cashierIDs[randomIndex], nil
 }
 func NewTransactionController(g *gin.Engine, db *gorm.DB) {
 	router := g.Group("/transaction")
@@ -44,8 +52,8 @@ func getAllItemsByBillID(db *gorm.DB) func(c *gin.Context) {
 			return
 		}
 		var products []entity.Product
-		if err := db.Table("include").Joins("JOIN at ON product.ProductID = include.ProductID").
-			Where("include.TransactionID = ?", id).Find(&products).Error; err != nil {
+
+		if err := db.Raw("CALL GetItemsByTransactionID(?)", id).Scan(&products).Error; err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
 			})
