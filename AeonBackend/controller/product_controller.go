@@ -50,7 +50,9 @@ func getListProductByCategory(db *gorm.DB) func(c *gin.Context) {
 			})
 			return
 		}
-		c.JSON(http.StatusOK, products)
+		c.JSON(http.StatusOK, gin.H{
+			"products_by_category": products,
+		})
 	}
 }
 

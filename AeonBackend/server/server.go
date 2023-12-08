@@ -27,6 +27,11 @@ func NewServer(port string) Server {
 }
 
 func (s *server) Start() error {
+	// config := cors.DefaultConfig()
+    // config.AllowOrigins = []string{"http://localhost:5173"} // Add your frontend URL
+    // config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
+	// config.AllowHeaders = []string{"Origin", "Content-Type"},
+    // s.gin.Use(cors.New(config))
 	s.gin.Use(cors.Default()) //allow all origins
 	return s.gin.Run(s.port)
 }
